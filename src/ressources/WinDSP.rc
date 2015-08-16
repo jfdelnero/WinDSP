@@ -1,0 +1,822 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MODULE_VOLUME DIALOG DISCARDABLE  0, 0, 130, 207
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Volume",IDC_STATIC,52,8,36,8
+    PUSHBUTTON      "OK",IDOK,76,179,38,12
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,18,
+                    56,31,104
+    EDITTEXT        IDC_EDIT1,18,160,30,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,83,
+                    56,30,104
+    EDITTEXT        IDC_EDIT2,83,160,30,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Mute",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    86,32,31,10
+    CONTROL         "Mute",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    21,32,31,10
+    CONTROL         "Swap L/R",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,21,48,10
+    CONTROL         "Mix Mono",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,43,52,10
+END
+
+IDD_MODULE_LFO DIALOG DISCARDABLE  0, 0, 318, 210
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Low Frequency Oscillator",IDC_STATIC,112,13,97,8
+    PUSHBUTTON      "OK",IDOK,264,183,38,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,55,49,240,20
+    EDITTEXT        IDC_EDIT1,39,178,47,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,55,82,240,20
+    CONTROL         "Slider1",IDC_SLIDER3,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,56,150,240,20
+    LTEXT           "Frequency:",IDC_STATIC,16,57,43,11
+    LTEXT           "Fine:",IDC_STATIC,17,90,26,11
+    LTEXT           "Modulation:",IDC_STATIC,15,156,43,11
+    EDITTEXT        IDC_EDIT3,138,178,39,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Sine",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    28,32,30,10
+    CONTROL         "Square",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,73,32,39,10
+    CONTROL         "Triangle",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,115,32,41,10
+    CONTROL         "Slider1",IDC_SLIDER5,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,55,117,240,20
+    LTEXT           "Amplitude:",IDC_STATIC,17,124,34,8
+    CONTROL         "Saw 1",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    168,32,37,10
+    CONTROL         "Saw 2",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    219,32,37,10
+    LTEXT           "f0:",IDC_STATIC,25,180,10,8
+    LTEXT           "Modulation:",IDC_STATIC,95,181,37,11
+END
+
+IDD_MODULE_SCOPE DIALOG DISCARDABLE  0, 0, 213, 127
+STYLE DS_SYSMODAL | DS_CONTROL | DS_CONTEXTHELP | WS_CLIPSIBLINGS | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,7,7,38,14,BS_CENTER | BS_VCENTER | BS_FLAT
+    PUSHBUTTON      "+",IDC_BUTTON1,53,7,12,10,BS_FLAT
+    PUSHBUTTON      "-",IDC_BUTTON2,71,7,12,10,BS_FLAT
+    PUSHBUTTON      "Mode",IDC_BUTTON3,95,7,32,13,BS_FLAT
+END
+
+IDD_MODULE_DELAY DIALOG DISCARDABLE  0, 0, 254, 171
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Delay",IDC_STATIC,117,13,24,8
+    PUSHBUTTON      "OK",IDOK,201,142,38,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,58,26,178,20
+    EDITTEXT        IDC_EDIT1,14,143,47,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,58,113,178,20
+    LTEXT           "Flanger control:",IDC_STATIC,13,116,45,20
+    LTEXT           "Delay:",IDC_STATIC,16,36,27,8
+    EDITTEXT        IDC_EDIT2,94,143,32,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER4,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,58,85,178,20
+    LTEXT           "Feedback:",IDC_STATIC,14,94,45,11
+    EDITTEXT        IDC_EDIT4,151,143,37,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER14,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,58,54,178,20
+    LTEXT           "+Offset:",IDC_STATIC,15,62,39,12
+END
+
+IDD_MODULE_OUTPUT DIALOG DISCARDABLE  0, 0, 165, 70
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Output",IDC_STATIC,71,7,28,8
+    PUSHBUTTON      "OK",IDOK,126,44,32,13
+    CONTROL         "Sound card",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,25,53,10
+    CONTROL         "File",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    21,40,27,10
+    PUSHBUTTON      "select...",IDC_BUTTON1,55,40,35,10
+END
+
+IDD_MODULE_FILTER DIALOG DISCARDABLE  0, 0, 379, 187
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Equalizer",IDC_STATIC,175,14,36,8
+    PUSHBUTTON      "OK",IDOK,323,159,38,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,36,
+                    43,31,104
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,72,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER3,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,104,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER5,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,134,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER6,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,165,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER7,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,195,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER8,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,224,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER9,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,255,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER10,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,289,
+                    43,30,104
+    CONTROL         "Slider1",IDC_SLIDER11,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,325,
+                    43,30,104
+    LTEXT           "31Hz",IDC_STATIC,44,35,18,8
+    LTEXT           "62Hz",IDC_STATIC,79,35,18,8
+    LTEXT           "125Hz",IDC_STATIC,107,35,24,10
+    LTEXT           "250Hz",IDC_STATIC,140,35,26,8
+    LTEXT           "500Hz",IDC_STATIC,171,35,23,8
+    LTEXT           "1kHz",IDC_STATIC,201,35,18,8
+    LTEXT           "2kHz",IDC_STATIC,231,35,18,8
+    LTEXT           "4kHz",IDC_STATIC,263,35,18,8
+    LTEXT           "8kHz",IDC_STATIC,296,35,18,8
+    LTEXT           "16kHz",IDC_STATIC,332,35,23,8
+END
+
+IDD_MODULE_MIX DIALOG DISCARDABLE  0, 0, 221, 87
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Mix",-1,105,13,24,8
+    PUSHBUTTON      "OK",IDOK,163,57,38,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,22,28,180,20
+END
+
+IDD_MODULE_REVERB DIALOG DISCARDABLE  0, 0, 166, 195
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Reverb",IDC_STATIC,68,14,36,8
+    PUSHBUTTON      "OK",IDOK,116,168,38,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,36,
+                    26,31,104
+    EDITTEXT        IDC_EDIT1,35,147,30,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,102,
+                    26,30,104
+    EDITTEXT        IDC_EDIT2,101,147,32,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Cutoff",IDC_STATIC,41,133,42,10
+    LTEXT           "Delay",IDC_STATIC,108,133,30,10
+END
+
+IDD_MODULE_DETECTOR DIALOG DISCARDABLE  0, 0, 272, 139
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Detector"
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Detector",IDC_STATIC,117,11,31,8
+    PUSHBUTTON      "OK",IDOK,215,118,40,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,60,24,199,19
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,60,43,199,19
+    CONTROL         "Slider1",IDC_SLIDER12,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | NOT WS_VISIBLE | WS_TABSTOP,60,100,199,19
+    CONTROL         "Slider1",IDC_SLIDER5,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,60,62,199,19
+    LTEXT           "Threshold :",IDC_STATIC,14,27,40,12
+    LTEXT           "Disable:",IDC_STATIC,14,45,32,12
+    LTEXT           "Enable:",IDC_STATIC,14,63,36,14
+    LTEXT           "Attack time:",IDC_STATIC,14,102,39,10,NOT WS_VISIBLE
+    CONTROL         "Slider1",IDC_SLIDER13,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,60,81,199,19
+    LTEXT           "Release Time: ",IDC_STATIC,14,83,49,13
+END
+
+IDD_MODULE_SIGNALTRANSFORM DIALOG DISCARDABLE  0, 0, 265, 151
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Signal Transformer"
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Signal Transformer",IDC_STATIC,97,13,70,8
+    PUSHBUTTON      "OK",IDOK,110,124,38,14
+    CONTROL         "Positive rectifier",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,29,26,67,10
+    CONTROL         "Negative rectifier",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,123,27,71,10
+    CONTROL         "Positive only",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,29,39,56,10
+    CONTROL         "Negative only",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,123,38,59,10
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,25,90,213,19
+    EDITTEXT        IDC_EDIT1,31,112,64,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Add Offset :",IDC_STATIC,27,77,50,12
+    CONTROL         "Inverser",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,30,56,43,10
+    CONTROL         "Before/After",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,84,76,57,10
+END
+
+IDD_MODULE_MINFO DIALOG DISCARDABLE  0, 0, 180, 151
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Info"
+FONT 8, "Arial"
+BEGIN
+    EDITTEXT        IDC_EDIT1,15,21,147,94,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    LTEXT           "Text:",IDC_STATIC,75,10,35,9
+    PUSHBUTTON      "OK",IDOK,123,120,38,14
+END
+
+IDD_MODULE_MMORSE DIALOG DISCARDABLE  0, 0, 180, 151
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Morse"
+FONT 8, "Arial"
+BEGIN
+    EDITTEXT        IDC_EDIT1,15,21,147,94,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
+    LTEXT           "Text:",IDC_STATIC,75,10,35,9
+    PUSHBUTTON      "OK",IDOK,123,120,38,14
+END
+
+IDD_MODULE_AGENT DIALOG DISCARDABLE  0, 0, 265, 171
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Agent",IDC_STATIC,117,13,24,8
+    PUSHBUTTON      "OK",IDOK,201,94,38,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,57,26,180,20
+    LTEXT           "Humeur:",IDC_STATIC,16,36,27,8
+    CONTROL         "Slider1",IDC_SLIDER4,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,57,54,178,20
+    LTEXT           "Inertie:",IDC_STATIC,16,62,45,11
+    CONTROL         "Filtre",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,19,98,31,10
+    CONTROL         "Generateur Sinus",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,89,98,73,10
+    LTEXT           "Expression :",IDC_STATIC,13,84,61,9
+    EDITTEXT        IDC_EDIT1,22,118,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,151,119,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,66,118,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,109,118,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,191,118,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,21,132,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,67,133,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,109,133,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT10,151,133,37,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,190,133,37,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MODULE_VOLUME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 123
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+
+    IDD_MODULE_LFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_MODULE_SCOPE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_MODULE_DELAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_MODULE_OUTPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 158
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_MODULE_FILTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_MODULE_MIX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_MODULE_REVERB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 159
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_MODULE_DETECTOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 265
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_MODULE_SIGNALTRANSFORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_MODULE_MINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_MODULE_MMORSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_MODULE_AGENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 254, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About WinDSP"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,10,9,20,20
+    LTEXT           "WinDSP V1.4b",IDC_STATIC,33,9,63,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,209,39,30,10,WS_GROUP
+    LTEXT           "Jean-François DEL NERO ",IDC_STATIC,11,40,85,8
+    CONTROL         153,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE | SS_SUNKEN | WS_BORDER,107,5,133,31
+    PUSHBUTTON      "http://hxc2001.free.fr",IDC_BUTTON1,107,36,80,14,
+                    BS_FLAT,WS_EX_DLGMODALFRAME
+    LTEXT           "(C)2002-2015 HxC2001",IDC_STATIC,32,19,74,8
+    LTEXT           "(C)2002-2015",IDC_STATIC,10,31,47,8
+END
+
+IDD_DIALOG_CONFIG DIALOG DISCARDABLE  0, 0, 69, 98
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Buffer Size:"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,17,76,32,14
+    CONTROL         "4096 ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    16,23,39,12
+    CONTROL         "8192",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    16,36,38,11
+    CONTROL         "16384",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    15,48,37,15
+    CONTROL         "32768",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    15,64,38,11
+    CONTROL         "2048",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    16,9,42,12
+END
+
+IDD_DIALOGSTART DIALOG DISCARDABLE  0, 0, 233, 167
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,171,155,52,12
+    CONTROL         IDI_ICON14,IDC_STATIC,"Static",SS_BITMAP | 
+                    SS_CENTERIMAGE | SS_RIGHTJUST | SS_REALSIZEIMAGE | 
+                    SS_SUNKEN | WS_BORDER,10,6,213,148
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 53
+    END
+
+    IDD_DIALOG_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 59
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_DIALOGSTART, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        TOPMARGIN, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 12, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""ressources\\WinDSP.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.fra\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "WinDSP.ico"
+IDI_ICON1               ICON    DISCARDABLE     "delay_module.ico"
+IDI_ICON2               ICON    DISCARDABLE     "input_module.ico"
+IDI_ICON4               ICON    DISCARDABLE     "output_module.ico"
+IDI_ICON5               ICON    DISCARDABLE     "t_module.ico"
+IDI_ICON6               ICON    DISCARDABLE     "mix_module.ico"
+IDI_ICON7               ICON    DISCARDABLE     "lfo_module.ico"
+IDI_ICON8               ICON    DISCARDABLE     "vol_module.ico"
+IDI_ICON9               ICON    DISCARDABLE     "st_module.ico"
+IDI_ICON10              ICON    DISCARDABLE     "scope_module.ico"
+IDI_ICON11              ICON    DISCARDABLE     "vco_module.ico"
+IDI_ICON12              ICON    DISCARDABLE     "revb_module.ico"
+IDI_ICON13              ICON    DISCARDABLE     "echo_module.ico"
+IDI_ICON14              ICON    DISCARDABLE     "filter_module.ico"
+IDI_ICON15              ICON    DISCARDABLE     "detector_module.ico"
+IDI_ICON16              ICON    DISCARDABLE     "info_module.ico"
+IDI_ICON17              ICON    DISCARDABLE     "morse_module.ico"
+IDI_ICON18              ICON    DISCARDABLE     "feedback_module.ico"
+IDI_ICON19              ICON    DISCARDABLE     "agent_module.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "Toolbar.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "start.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "HXCBAN.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BMODULE01
+    BUTTON      ID_BMODULE02
+    BUTTON      ID_BMODULE03
+    BUTTON      ID_BMODULE04
+    BUTTON      ID_BMODULE05
+    BUTTON      ID_BMODULE08
+    BUTTON      ID_BMODULE09
+    BUTTON      ID_BMODULE10
+    BUTTON      ID_BMODULE11
+    BUTTON      ID_BMODULE12
+    BUTTON      ID_BMODULE13
+    BUTTON      ID_BMODULE14
+    SEPARATOR
+    BUTTON      BMODULE15
+    SEPARATOR
+    BUTTON      ID_BMODULE06
+    BUTTON      ID_BSTOP
+    SEPARATOR
+    BUTTON      ID_BMIX
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Open",                        ID_FICHIER_OUVRIR
+        MENUITEM "Save",                        ID_FICHIER_ENREGISTRER
+        MENUITEM "&Exit",                       ID_APP_EXIT
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "Status Bar",                  ID_VIEW_STATUS_BAR
+        MENUITEM "Sound Buffer",                ID_OPTIONS_ESSON
+    END
+    POPUP "&?"
+    BEGIN
+        MENUITEM "&About WinDSP...",            ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,4,1
+ PRODUCTVERSION 1,0,4,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x9L
+#else
+ FILEFLAGS 0x8L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040c04b0"
+        BEGIN
+            VALUE "Comments", "Freeware version\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "WinDSP V1.4b\0"
+            VALUE "FileVersion", "1, 0, 4, 1\0"
+            VALUE "InternalName", "WinDSP V1.4b\0"
+            VALUE "LegalCopyright", "(c) HxC2001\0"
+            VALUE "LegalTrademarks", "hxc2001.com\0"
+            VALUE "OriginalFilename", "windsp.exe\0"
+            VALUE "PrivateBuild", "WinDSP V1.4b\0"
+            VALUE "ProductName", "Win DSP\0"
+            VALUE "ProductVersion", "1, 0, 4, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x40c, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "WinDSP"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "WinDSP"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "MAJ"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "DEF"
+    ID_INDICATOR_OVR        "ECR"
+    ID_INDICATOR_REC        "ENR"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Affiche des informations sur le programme, le numéro de version et le copyright\nA propos de"
+    ID_APP_EXIT             "Ferme l'application ; propose d'enregistrer les documents\nQuitter"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Passe au volet de fenêtre suivant\nVolet suivant"
+    ID_PREV_PANE            "Revient au volet précédent\nVolet précédent"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Réorganise les fenêtres en une mosaïque\nMosaïque"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Affiche ou masque la barre d'outils\nBarre d'outils"
+    ID_VIEW_STATUS_BAR      "Affiche ou masque la barre d'état\nBarre d'état"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change la taille de la fenêtre"
+    AFX_IDS_SCMOVE          "Change la position de la fenêtre"
+    AFX_IDS_SCMINIMIZE      "Réduit la fenêtre en icône"
+    AFX_IDS_SCMAXIMIZE      "Agrandit la fenêtre au format de l'écran"
+    AFX_IDS_SCNEXTWINDOW    "Passe à la fenêtre de document suivante"
+    AFX_IDS_SCPREVWINDOW    "Passe à la fenêtre de document précédente"
+    AFX_IDS_SCCLOSE         "Ferme la fenêtre active et propose l'enregistrement des documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restaure la fenêtre à sa taille d'origine"
+    AFX_IDS_SCTASKLIST      "Active la liste des tâches"
+END
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE 12, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "ressources\WinDSP.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.fra\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
