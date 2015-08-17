@@ -454,6 +454,14 @@ SOURCE=.\core\StdAfx.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\core\utils.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\core\utils.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\core\WinDSP.cpp
 # End Source File
 # Begin Source File
