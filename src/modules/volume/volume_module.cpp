@@ -49,6 +49,7 @@
 #include <string.h>
 #include <math.h>
 #include "module.h"
+#include "utils.h"
 #include "volume_module.h"
 #include "volume_module_dialog.h"
 #include "sound_io.h"
@@ -269,6 +270,9 @@ int Volume_module::GetSample(short  * Buffer, int Size,int Port)
 int Volume_module::ProcessSample(int Size)
 {
 	int k=0,t=0;
+	int cur_sample,new_sample;
+	int cur_volume;
+
 
 	if(Connection[0].ToModule==-1)
 	{
@@ -298,8 +302,12 @@ int Volume_module::ProcessSample(int Size)
 		{
 			for(k=0;k<Size/2;k=k+2)
 			{
+				cur_sample = *(BufferTemp+k);
+				cur_volume = VolumeD;
+				new_sample = (int)((float)cur_sample*(float)pow((float)10,(float)cur_volume/20));
+
 				if(VolumeD<50)
-					*(BufferTemp+k)=(short)((float)(*(BufferTemp+k))*(float)pow((float)10,(float)VolumeD/20));
+					*(BufferTemp+k)= CheckOverflow(new_sample);
 				else
 					*(BufferTemp+k)=0;
 			}
@@ -310,7 +318,11 @@ int Volume_module::ProcessSample(int Size)
 			{
 				for(k=0;k<Size/2;k=k+2)
 				{
-					*(BufferTemp+k)=(short)((float)(*(BufferTemp+k))*(float)pow((float)10,(float)(((*(BufferVolumeD+k)+*(BufferVolumeD+k+1))/2)/1000)/20));
+					cur_sample = *(BufferTemp+k);
+					cur_volume = ((*(BufferVolumeD+k)+*(BufferVolumeD+k+1))/2)/1000;
+					new_sample = (int)((float)cur_sample*(float)pow((float)10,(float)cur_volume/20));
+
+					*(BufferTemp+k)= CheckOverflow(new_sample);
 				}
 			}
 			else
@@ -325,8 +337,12 @@ int Volume_module::ProcessSample(int Size)
 		{
 			for(k=0;k<Size/2;k=k+2)
 			{
+				cur_sample = *(BufferTemp+k+1);
+				cur_volume = VolumeG;
+				new_sample = (int)((float)cur_sample*(float)pow((float)10,(float)cur_volume/20));
+
 				if(VolumeG<50)
-					*(BufferTemp+k+1) = (short)((float)(*(BufferTemp+k+1))*(float)pow((float)10,(float)VolumeG/20));
+					*(BufferTemp+k+1)= CheckOverflow(new_sample);
 				else
 					*(BufferTemp+k+1)=0;
 			}
@@ -338,7 +354,11 @@ int Volume_module::ProcessSample(int Size)
 			{
 				for(k=0;k<Size/2;k=k+2)
 				{
-					*(BufferTemp+k+1)=(short)((float)(*(BufferTemp+k+1))*(float)pow((float)10,(float)(((*(BufferVolumeG+k)+*(BufferVolumeG+k+1))/2)/1000)/20));
+					cur_sample = *(BufferTemp+k+1);
+					cur_volume = (((*(BufferVolumeG+k)+*(BufferVolumeG+k+1))/2)/1000);
+					new_sample = (int)((float)cur_sample*(float)pow((float)10,(float)cur_volume/20));
+
+					*(BufferTemp+k+1) = CheckOverflow(new_sample);
 				}
 			}
 			else
