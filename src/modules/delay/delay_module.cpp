@@ -48,6 +48,7 @@
 #include <malloc.h>
 #include <string.h>
 #include "module.h"
+#include "utils.h"
 #include "delay_module.h"
 #include "delay_module_dialog.h"
 #include "fast_rout_x86.h"
@@ -259,6 +260,7 @@ int Delay_module::GetSample(short  * Buffer, int Size,int Port)
 int Delay_module::ProcessSample(int Size)
 {
 	int k=0;
+	int cur_samp;
 	double ecartechantiMax,oldEcartechanti,saut;
 
 	if(Connection[0].ToModule==-1)
@@ -272,19 +274,24 @@ int Delay_module::ProcessSample(int Size)
 	{
 		for(k=0;k<sampsize;k=k+2)
 		{
-			*(BufferDelay+((k+writeoffset)&0x3ffff))=*(BufferTemp+k)+(short)(*(BufferDelay+((k+readoffset&0x3ffff)))*(float)((float)rejection/100));
-			*(BufferDelay+((k+1+writeoffset)&0x3ffff))=*(BufferTemp+k+1)+(short)(*(BufferDelay+((k+1+readoffset&0x3ffff)))*(float)((float)rejection/100));
+			cur_samp = *(BufferTemp+k);
+			cur_samp += (short)(*(BufferDelay+((k+readoffset&0x3ffff)))*(float)((float)rejection/100));
+			*(BufferDelay + ((k+writeoffset)&0x3ffff) ) = CheckOverflow( cur_samp );
+
+			cur_samp = *(BufferTemp+k+1);
+			cur_samp += (short)(*(BufferDelay+((k+1+readoffset&0x3ffff)))*(float)((float)rejection/100));
+			*(BufferDelay + ((k+1+writeoffset)&0x3ffff) ) = CheckOverflow( cur_samp );
 		}
 
 		for(k=0;k<Size/2;k=k+2)
 		{
 
-			*(BufferOut+k)=*(BufferDelay+((k+readoffset)&0x3ffff));
-			*(BufferOut+k+1)=*(BufferDelay+((k+1+readoffset)&0x3ffff));
+			*(BufferOut+k)   = *(BufferDelay+((k+readoffset)&0x3ffff));
+			*(BufferOut+k+1) = *(BufferDelay+((k+1+readoffset)&0x3ffff));
 		}
 
-		readoffset=readoffset+Size/2;
-		writeoffset=writeoffset+Size/2;
+		readoffset  = readoffset+Size/2;
+		writeoffset = writeoffset+Size/2;
 
 		Flag=MOD_SAMPLEREADY;
 		return Flag;
@@ -313,8 +320,14 @@ int Delay_module::ProcessSample(int Size)
 
 			for(k=0;k<sampsize;k=k+2)
 			{
-				*(BufferDelay+((k+writeoffset)&0x3ffff))=*(BufferDelay+((k+writeoffset)&0x3ffff))+(short)(*(BufferOut+k)*(float)((float)rejection/100));
-				*(BufferDelay+((k+1+writeoffset)&0x3ffff))=*(BufferDelay+((k+1+writeoffset)&0x3ffff))+(short)(*(BufferOut+k)*(float)((float)rejection/100));
+				cur_samp = *(BufferDelay+((k+writeoffset)&0x3ffff));
+				cur_samp += (short)(*(BufferOut+k)*(float)((float)rejection/100));
+				*(BufferDelay+((k+writeoffset)&0x3ffff))   = CheckOverflow( cur_samp );
+
+
+				cur_samp = *(BufferDelay+((k+1+writeoffset)&0x3ffff));
+				cur_samp += (short)(*(BufferOut+k)*(float)((float)rejection/100));
+				*(BufferDelay+((k+1+writeoffset)&0x3ffff)) = CheckOverflow( cur_samp );
 			}
 
 			readoffset=readoffset+Size/2;

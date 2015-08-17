@@ -16,6 +16,7 @@
 #include "stdafx.h"
 #include "reverb.h"
 
+#include "utils.h"
 
 // Reverb: 4 delay lines + high-pass filter + low-pass filter
 
@@ -93,8 +94,8 @@ void reverb::ProcessStereoDSP(int count2,short * MixSoundBuffer,short * MixRever
 
 			// Reverb
 			int v = (pin[0]+pin[1]) >> nFilterAttn;
-			pr[0]=( pin[0]+ echodly); //droite
-			pr[1]=( pin[1]+ echodly); //gauche
+			pr[0]=CheckOverflow( pin[0]+ echodly); //droite
+			pr[1]=CheckOverflow( pin[1]+ echodly); //gauche
 			v += echodly >> 2;
 			ReverbBuffer3[nReverbBufferPos3] = v;
 			ReverbBuffer4[nReverbBufferPos4] = v;

@@ -48,7 +48,7 @@
 #include <malloc.h>
 #include <string.h>
 #include "module.h"
-
+#include "utils.h"
 #include "signal_transform_module.h"
 #include "signal_transform_dialog.h"
 #include "sound_io.h"
@@ -250,8 +250,8 @@ int SignalTransform_module::ProcessSample(int Size)
 		{
 			for(k=0;k<Size/2;k=k+2)
 			{
-				*(BufferTemp+k)=*(BufferTemp+k)+Offset;
-				*(BufferTemp+k+1)=*(BufferTemp+k+1)+Offset;
+				*(BufferTemp+k)   = CheckOverflow( *(BufferTemp+k) + Offset );
+				*(BufferTemp+k+1) = CheckOverflow( *(BufferTemp+k+1) + Offset );
 			}
 		}
 
@@ -333,8 +333,8 @@ int SignalTransform_module::ProcessSample(int Size)
 		{
 			for(k=0;k<Size/2;k=k+2)
 			{
-				*(BufferTemp+k)=-*(BufferTemp+k);
-				*(BufferTemp+k+1)=-*(BufferTemp+k+1);
+				*(BufferTemp+k)   = -*(BufferTemp+k);
+				*(BufferTemp+k+1) = -*(BufferTemp+k+1);
 			}
 		}
 
@@ -342,8 +342,8 @@ int SignalTransform_module::ProcessSample(int Size)
 		{
 			for(k=0;k<Size/2;k=k+2)
 			{
-					*(BufferTemp+k)=*(BufferTemp+k)+Offset;
-					*(BufferTemp+k+1)=*(BufferTemp+k+1)+Offset;
+					*(BufferTemp+k)  = CheckOverflow( *(BufferTemp+k) + Offset );
+					*(BufferTemp+k+1)= CheckOverflow( *(BufferTemp+k+1) + Offset );
 			}
 		}
 

@@ -372,9 +372,8 @@ int Volume_module::ProcessSample(int Size)
 		{
 			for(k=0;k<Size/2;k=k+2)
 			{
-				t=*(BufferTemp+k);
-				*(BufferTemp+k)=*(BufferTemp+k)+*(BufferTemp+k+1);
-				*(BufferTemp+k+1)=*(BufferTemp+k+1)+t;
+				*(BufferTemp+k) = CheckOverflow( *(BufferTemp+k)+*(BufferTemp+k+1) );
+				*(BufferTemp+k+1) = *(BufferTemp+k);
 			}
 		}
 
