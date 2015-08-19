@@ -51,8 +51,8 @@ Resource18=IDR_MAINFRAME
 [CLS:CChildView]
 Type=0
 BaseClass=CWnd 
-HeaderFile=..\prog\ChildView.h
-ImplementationFile=..\prog\ChildView.cpp
+HeaderFile=..\core\ChildView.h
+ImplementationFile=..\core\ChildView.cpp
 LastObject=BMODULE15
 Filter=W
 VirtualFilter=WC
@@ -98,8 +98,8 @@ LastObject=IDC_SLIDER1
 
 [CLS:CMainFrame]
 Type=0
-HeaderFile=..\prog\mainfrm.h
-ImplementationFile=..\prog\mainfrm.cpp
+HeaderFile=..\core\mainfrm.h
+ImplementationFile=..\core\mainfrm.cpp
 BaseClass=CFrameWnd
 LastObject=BMODULE15
 Filter=T
@@ -144,15 +144,15 @@ VirtualFilter=dWC
 [CLS:CWinDSPApp]
 Type=0
 BaseClass=CWinApp
-HeaderFile=../prog/WinDSP.h
-ImplementationFile=../prog/WinDSP.cpp
+HeaderFile=..\core\WinDSP.h
+ImplementationFile=..\core\WinDSP.cpp
 LastObject=BMODULE15
 
 [CLS:CAboutDlg]
 Type=0
 BaseClass=CDialog
-HeaderFile=../prog/WinDSP.cpp
-ImplementationFile=../prog/WinDSP.cpp
+HeaderFile=..\core\WinDSP.cpp
+ImplementationFile=..\core\WinDSP.cpp
 LastObject=IDC_BUTTON1
 Filter=D
 VirtualFilter=dWC
@@ -451,8 +451,8 @@ Control6=IDC_CHECK5,button,1342242819
 
 [CLS:CDialog_Config]
 Type=0
-HeaderFile=../prog/dialog_config.h
-ImplementationFile=../prog/dialog_config.cpp
+HeaderFile=..\core\dialog_config.h
+ImplementationFile=..\core\dialog_config.cpp
 BaseClass=CDialog
 LastObject=CDialog_Config
 
