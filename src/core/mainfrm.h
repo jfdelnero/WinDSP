@@ -123,6 +123,7 @@ protected:
 	afx_msg void OnBmorse();
 	afx_msg void OnBfb();
 	afx_msg void OnBagent();
+	afx_msg void OnBnoise();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

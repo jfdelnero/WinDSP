@@ -43,7 +43,9 @@
 #define IDI_ICON18                      149
 #define IDD_MODULE_AGENT                149
 #define IDI_ICON19                      150
+#define IDD_MODULE_NOISE                150
 #define IDB_BITMAP4                     153
+#define IDI_ICON20                      155
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT1                       1002
 #define IDC_SLIDER2                     1003
@@ -106,14 +108,15 @@
 #define ID_BMORSE                       32796
 #define ID_BFB                          32801
 #define ID_BAGENT                       32802
+#define ID_BNOISE                       32803
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        154
-#define _APS_NEXT_COMMAND_VALUE         32803
+#define _APS_NEXT_RESOURCE_VALUE        156
+#define _APS_NEXT_COMMAND_VALUE         32804
 #define _APS_NEXT_CONTROL_VALUE         1023
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

@@ -2,13 +2,13 @@
 
 [General Info]
 Version=1
-LastClass=CMainFrame
+LastClass=Noice_module_dialog
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "windsp.h"
 LastPage=0
 
-ClassCount=18
+ClassCount=19
 Class1=CChildView
 Class2=Delay_module_dialog
 Class3=Delay_module_dialog2
@@ -23,10 +23,10 @@ Class11=Volume_module_dialog
 Class12=CWinDSPApp
 Class13=CAboutDlg
 
-ResourceCount=18
+ResourceCount=19
 Resource1=IDD_MODULE_OUTPUT (English (U.S.))
 Resource2=IDD_MODULE_FILTER (English (U.S.))
-Resource3=IDD_DIALOGSTART
+Resource3=IDD_MODULE_NOISE (English (U.S.))
 Resource4=IDD_MODULE_DETECTOR (English (U.S.))
 Resource5=IDD_MODULE_DELAY (English (U.S.))
 Resource6=IDD_MODULE_SCOPE (English (U.S.))
@@ -46,7 +46,9 @@ Class18=Info_Dialog
 Resource15=IDD_ABOUTBOX
 Resource16=IDD_MODULE_VOLUME (English (U.S.))
 Resource17=IDD_MODULE_LFO (English (U.S.))
-Resource18=IDR_MAINFRAME
+Resource18=IDD_DIALOGSTART
+Class19=Noice_module_dialog
+Resource19=IDR_MAINFRAME
 
 [CLS:CChildView]
 Type=0
@@ -340,11 +342,12 @@ Command9=ID_BMODULE11
 Command10=ID_BMODULE12
 Command11=ID_BMODULE13
 Command12=ID_BMODULE14
-Command13=BMODULE15
-Command14=ID_BMODULE06
-Command15=ID_BSTOP
-Command16=ID_BMIX
-CommandCount=16
+Command13=ID_BNOISE
+Command14=BMODULE15
+Command15=ID_BMODULE06
+Command16=ID_BSTOP
+Command17=ID_BMIX
+CommandCount=17
 
 [MNU:IDR_MAINFRAME]
 Type=1
@@ -527,4 +530,28 @@ Control16=IDC_EDIT8,edit,1350631552
 Control17=IDC_EDIT9,edit,1350631552
 Control18=IDC_EDIT10,edit,1350631552
 Control19=IDC_EDIT11,edit,1350631552
+
+[DLG:IDD_MODULE_NOISE (English (U.S.))]
+Type=1
+Class=Noice_module_dialog
+ControlCount=10
+Control1=IDC_STATIC,static,1342308352
+Control2=IDOK,button,1342242816
+Control3=IDC_SLIDER1,msctls_trackbar32,1342242855
+Control4=IDC_EDIT1,edit,1350633600
+Control5=IDC_SLIDER2,msctls_trackbar32,1342242855
+Control6=IDC_EDIT2,edit,1350633600
+Control7=IDC_CHECK2,button,1342242819
+Control8=IDC_CHECK4,button,1342242819
+Control9=IDC_CHECK3,button,1342242819
+Control10=IDC_CHECK5,button,1342242819
+
+[CLS:Noice_module_dialog]
+Type=0
+HeaderFile=..\modules\noise\noise_module_dialog.h
+ImplementationFile=..\modules\noise\noise_module_dialog.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=ID_BNOISE
+VirtualFilter=dWC
 

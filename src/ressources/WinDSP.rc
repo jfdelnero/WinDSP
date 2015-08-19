@@ -319,6 +319,31 @@ BEGIN
     EDITTEXT        IDC_EDIT11,190,133,37,12,ES_AUTOHSCROLL
 END
 
+IDD_MODULE_NOISE DIALOG DISCARDABLE  0, 0, 130, 207
+STYLE DS_SYSMODAL | DS_CONTROL | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "Arial"
+BEGIN
+    LTEXT           "Noise",IDC_STATIC,52,8,36,8
+    PUSHBUTTON      "OK",IDOK,76,179,38,12
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,18,
+                    56,31,104
+    EDITTEXT        IDC_EDIT1,18,160,30,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_VERT | TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,83,
+                    56,30,104
+    EDITTEXT        IDC_EDIT2,83,160,30,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Mute",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    86,32,31,10
+    CONTROL         "Mute",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    21,32,31,10
+    CONTROL         "Swap L/R",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,21,48,10
+    CONTROL         "Mix Mono",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,43,52,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -431,6 +456,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 164
     END
+
+    IDD_MODULE_NOISE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 123
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -455,7 +488,7 @@ LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
 IDD_ABOUTBOX DIALOGEX 0, 0, 254, 58
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About WinDSP"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,10,9,20,20
     LTEXT           "WinDSP V1.4b",IDC_STATIC,33,9,63,8,SS_NOPREFIX
@@ -596,6 +629,7 @@ IDI_ICON16              ICON    DISCARDABLE     "info_module.ico"
 IDI_ICON17              ICON    DISCARDABLE     "morse_module.ico"
 IDI_ICON18              ICON    DISCARDABLE     "feedback_module.ico"
 IDI_ICON19              ICON    DISCARDABLE     "agent_module.ico"
+IDI_ICON20              ICON    DISCARDABLE     "noise_module.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -625,6 +659,7 @@ BEGIN
     BUTTON      ID_BMODULE12
     BUTTON      ID_BMODULE13
     BUTTON      ID_BMODULE14
+    BUTTON      ID_BNOISE
     SEPARATOR
     BUTTON      BMODULE15
     SEPARATOR

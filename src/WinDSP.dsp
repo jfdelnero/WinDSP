@@ -43,8 +43,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I ".\core\" /I ".\ressources\" /I ".\modules\delay\" /I ".\modules\detector\" /I ".\modules\filter\" /I ".\modules\input\" /I ".\modules\lfo\" /I ".\modules\mix\" /I ".\modules\output\" /I ".\modules\reverb\" /I ".\modules\scope\" /I ".\modules\st\" /I ".\modules\t\" /I ".\modules\volume\" /I ".\modules\info\" /I ".\modules\morse\" /I ".\modules\feedback\" /I ".\modules\agent\" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /YX /FD /c
-# SUBTRACT CPP /X
+# ADD CPP /nologo /MD /W3 /GX /O2 /I ".\core\\" /I ".\ressources\\" /I ".\modules\delay\\" /I ".\modules\detector\\" /I ".\modules\filter\\" /I ".\modules\input\\" /I ".\modules\lfo\\" /I ".\modules\mix\\" /I ".\modules\output\\" /I ".\modules\reverb\\" /I ".\modules\scope\\" /I ".\modules\st\\" /I ".\modules\t\\" /I ".\modules\volume\\" /I ".\modules\info\\" /I ".\modules\morse\\" /I ".\modules\feedback\\" /I ".\modules\agent\\" /I ".\modules\noise\\" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x40c /d "NDEBUG" /d "_AFXDLL"
@@ -71,7 +70,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I ".\core\" /I ".\ressources\" /I ".\modules\delay\" /I ".\modules\detector\" /I ".\modules\filter\" /I ".\modules\input\" /I ".\modules\lfo\" /I ".\modules\mix\" /I ".\modules\output\" /I ".\modules\reverb\" /I ".\modules\scope\" /I ".\modules\st\" /I ".\modules\t\" /I ".\modules\volume\" /I ".\modules\info\" /I ".\modules\morse\" /I ".\modules\feedback\" /I ".\modules\agent\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /YX /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I ".\core\\" /I ".\ressources\\" /I ".\modules\delay\\" /I ".\modules\detector\\" /I ".\modules\filter\\" /I ".\modules\input\\" /I ".\modules\lfo\\" /I ".\modules\mix\\" /I ".\modules\output\\" /I ".\modules\reverb\\" /I ".\modules\scope\\" /I ".\modules\st\\" /I ".\modules\t\\" /I ".\modules\volume\\" /I ".\modules\info\\" /I ".\modules\morse\\" /I ".\modules\feedback\\" /I ".\modules\agent\\" /I ".\modules\noise\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x40c /d "_DEBUG" /d "_AFXDLL"
@@ -415,6 +414,26 @@ SOURCE=.\modules\agent\agent_module_dialog.cpp
 SOURCE=.\modules\agent\agent_module_dialog.h
 # End Source File
 # End Group
+# Begin Group "Noise"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\modules\noise\noise_module.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\modules\noise\noise_module.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\modules\noise\noise_module_dialog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\modules\noise\noise_module_dialog.h
+# End Source File
+# End Group
 # End Group
 # Begin Source File
 
@@ -550,6 +569,10 @@ SOURCE=.\ressources\filter_module.ico
 # End Source File
 # Begin Source File
 
+SOURCE=.\ressources\HXCBAN.BMP
+# End Source File
+# Begin Source File
+
 SOURCE=.\ressources\info_module.ico
 # End Source File
 # Begin Source File
@@ -571,6 +594,10 @@ SOURCE=.\ressources\module3.ico
 # Begin Source File
 
 SOURCE=.\ressources\morse_module.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\ressources\noise_module.ico
 # End Source File
 # Begin Source File
 

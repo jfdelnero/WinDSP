@@ -106,6 +106,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_BMODULE11, OnBmodule11)
 	ON_COMMAND(ID_BMODULE12, OnBmodule12)
 	ON_COMMAND(ID_BMODULE13, OnBmodule13)
+	ON_COMMAND(ID_BNOISE, OnBnoise)
 	ON_COMMAND(ID_FICHIER_OUVRIR, OnFichierOuvrir)
 	ON_COMMAND(ID_FICHIER_ENREGISTRER, OnFichierEnregistrer)
 	ON_COMMAND(ID_BSTOP, OnBstop)
@@ -366,82 +367,87 @@ BOOL CMainFrame::OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO*
 
 void CMainFrame::OnBmodule01()
 {
-	m_wndView.SelectModule(1);
+	m_wndView.SelectModule(MODULE_INPUT);
 }
 
 void CMainFrame::OnBmodule02()
 {
-	m_wndView.SelectModule(2);
+	m_wndView.SelectModule(MODULE_OUTPUT);
 }
 
 void CMainFrame::OnBmodule03()
 {
-	m_wndView.SelectModule(3);
+	m_wndView.SelectModule(MODULE_DELAY);
 }
 
 void CMainFrame::OnBmodule04()
 {
-	m_wndView.SelectModule(4);
+	m_wndView.SelectModule(MODULE_MIX);
 }
 
 void CMainFrame::OnBmodule05()
 {
-	m_wndView.SelectModule(5);
+	m_wndView.SelectModule(MODULE_T);
 }
 
 void CMainFrame::OnBmodule08()
 {
-	m_wndView.SelectModule(6);
+	m_wndView.SelectModule(MODULE_LFO);
 }
 
 void CMainFrame::OnBmodule09()
 {
-	m_wndView.SelectModule(7);
+	m_wndView.SelectModule(MODULE_VOLUME);
 }
 
 void CMainFrame::OnBmodule10()
 {
-	m_wndView.SelectModule(8);
+	m_wndView.SelectModule(MODULE_ST);
 }
 
 void CMainFrame::OnBmodule11()
 {
-	m_wndView.SelectModule(9);
+	m_wndView.SelectModule(MODULE_SCOPE);
 }
 
 void CMainFrame::OnBmodule12()
 {
-	m_wndView.SelectModule(10);
+	m_wndView.SelectModule(MODULE_REVERB);
 }
 
 void CMainFrame::OnBmodule13()
 {
-	m_wndView.SelectModule(11);
+	m_wndView.SelectModule(MODULE_FILTER);
 }
 
 void CMainFrame::OnBmodule14()
 {
-	m_wndView.SelectModule(12);
+	m_wndView.SelectModule(MODULE_DETECTOR);
 }
 
 void CMainFrame::OnBMODULE15()
 {
-	m_wndView.SelectModule(13);
+	m_wndView.SelectModule(MODULE_INFO);
 }
 
 void CMainFrame::OnBfb()
 {
-	m_wndView.SelectModule(15);
+	m_wndView.SelectModule(MODULE_FEEDBACK);
 }
 
 void CMainFrame::OnBmorse()
 {
-	m_wndView.SelectModule(14);
+	m_wndView.SelectModule(MODULE_MORSE);
 }
 
 void CMainFrame::OnBagent()
 {
-	m_wndView.SelectModule(16);
+	m_wndView.SelectModule(MODULE_AGENT);
+}
+
+void CMainFrame::OnBnoise()
+{
+	m_wndView.SelectModule(MODULE_NOISE);
 }
 
 void CMainFrame::OnBmodule06()

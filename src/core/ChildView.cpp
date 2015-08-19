@@ -70,6 +70,7 @@
 #include "morse_module.h"
 #include "feedback.h"
 #include "agent_module.h"
+#include "noise_module.h"
 
 #include "sound_io.h"
 
@@ -425,11 +426,11 @@ LRESULT CChildView::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 
 				switch(moduleselected)
 				{
-					case 3:
+					case MODULE_DELAY:
 						modules[i2]=new Delay_module(x,y);
 					break;
 
-					case 1:
+					case MODULE_INPUT:
 						if(sequenceur->GetSynchroScheduler()!=1 && sequenceur->GetSynchroScheduler()!=3)
 						{
 							if(sequenceur->GetSynchroScheduler()==2)
@@ -440,7 +441,7 @@ LRESULT CChildView::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 						}
 					break;
 
-					case 2:
+					case MODULE_OUTPUT:
 						if(sequenceur->GetSynchroScheduler()!=2 && sequenceur->GetSynchroScheduler()!=3)
 						{
 							modules[i2]=new output_module(x,y);
@@ -452,49 +453,53 @@ LRESULT CChildView::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 						}
 					break;
 
-					case 4:
+					case MODULE_MIX:
 						modules[i2]=new mix_module(x,y);
 					break;
 
-					case 5:
+					case MODULE_T:
 						modules[i2]=new t_module(x,y);
 					break;
 
-					case 6:
+					case MODULE_LFO:
 						modules[i2]=new lfo_module(x,y);
 					break;
 
-					case 7:
+					case MODULE_VOLUME:
 						modules[i2]=new Volume_module(x,y);
 					break;
 
-					case 8:
+					case MODULE_ST:
 						modules[i2]=new SignalTransform_module(x,y);
 					break;
-					case 9:
+					case MODULE_SCOPE:
 						modules[i2]=new visu_module(x,y);
 					break;
-					case 10:
+					case MODULE_REVERB:
 						modules[i2]=new reverb_module(x,y);
 					break;
-					case 11:
+					case MODULE_FILTER:
 						modules[i2]=new Filter_module(x,y);
 					break;
-					case 12:
+					case MODULE_DETECTOR:
 						modules[i2]=new Detector_module(x,y);
 					break;
-					case 13:
+					case MODULE_INFO:
 						modules[i2]=new info_module(x,y);
 					break;
-					case 14:
+					case MODULE_MORSE:
 						modules[i2]=new Morse_module(x,y);
 					break;
-					case 15:
+					case MODULE_FEEDBACK:
 						modules[i2]=new feedback_module(x,y);
 					break;
-					case 16:
+					case MODULE_AGENT:
 						modules[i2]=new Agent_module(x,y);
 					break;
+					case MODULE_NOISE:
+						modules[i2]=new noise_module(x,y);
+					break;
+
 				}
 
 				if(sequenceur!=NULL && sequenceur->GetStatusScheduler()==1 && modules[i2]!=NULL)
@@ -712,7 +717,7 @@ int CChildView::LoadDsp(char* t)
 			f.read(buffer,taille);
 			switch(type)
 			{
-				case 1:
+				case MODULE_INPUT:
 					modules[i]=new input_module(0,0);
 					if(sequenceur->GetSynchroScheduler()==2)
 						sequenceur->SetSynchroScheduler(3);
@@ -720,7 +725,7 @@ int CChildView::LoadDsp(char* t)
 						sequenceur->SetSynchroScheduler(1);
 				break;
 
-				case 2:
+				case MODULE_OUTPUT:
 					modules[i]=new output_module(0,0);
 					if(sequenceur->GetSynchroScheduler()==1)
 						sequenceur->SetSynchroScheduler(3);
@@ -728,49 +733,52 @@ int CChildView::LoadDsp(char* t)
 						sequenceur->SetSynchroScheduler(2);
 				break;
 
-				case 3:
+				case MODULE_DELAY:
 					modules[i]=new Delay_module(0,0);
 				break;
 
-				case 4:
+				case MODULE_MIX:
 					modules[i]=new mix_module(0,0);
 				break;
-				case 5:
+				case MODULE_T:
 					modules[i]=new t_module(0,0);
 				break;
-				case 6:
+				case MODULE_LFO:
 					modules[i]=new lfo_module(0,0);
 				break;
-				case 7:
+				case MODULE_VOLUME:
 					modules[i]=new Volume_module(0,0);
 				break;
-				case 8:
+				case MODULE_ST:
 					modules[i]=new SignalTransform_module(0,0);
 				break;
-				case 9:
+				case MODULE_SCOPE:
 					modules[i]=new visu_module(0,0);
 				break;
-				case 10:
+				case MODULE_REVERB:
 					modules[i]=new reverb_module(0,0);
 				break;
-				case 11:
+				case MODULE_FILTER:
 					modules[i]=new Filter_module(0,0);
 				break;
-				case 12:
+				case MODULE_DETECTOR:
 					modules[i]=new Detector_module(0,0);
 				break;
-				case 13:
+				case MODULE_INFO:
 					modules[i]=new info_module(0,0);
 				break;
-				case 14:
+				case MODULE_MORSE:
 					modules[i]=new Morse_module(0,0);
 				break;
 
-				case 15:
+				case MODULE_FEEDBACK:
 					modules[i]=new feedback_module(0,0);
 				break;
-				case 16:
+				case MODULE_AGENT:
 					modules[i]=new Agent_module(0,0);
+				break;
+				case MODULE_NOISE:
+					modules[i]=new noise_module(0,0);
 				break;
 			}
 
