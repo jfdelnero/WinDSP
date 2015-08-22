@@ -537,7 +537,7 @@ char * Detector_module::GetInfoTxt()
 
 int Detector_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=12;
+	*type = MODULE_DETECTOR;
 	((DetectmoduleData*)buffer)->type=2;
 
 	((DetectmoduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

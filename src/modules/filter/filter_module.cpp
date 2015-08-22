@@ -430,7 +430,7 @@ char * Filter_module::GetInfoTxt()
 
 int Filter_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=11;
+	*type = MODULE_FILTER;
 
 	((Filter_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;
 	((Filter_moduleData*)buffer)->GraphXPosi_Y=GraphXPosi_Y;

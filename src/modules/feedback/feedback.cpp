@@ -412,7 +412,7 @@ char * feedback_module::GetInfoTxt()
 
 int feedback_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=15;
+	*type = MODULE_FEEDBACK;
 
 	((feedback_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;
 	((feedback_moduleData*)buffer)->GraphXPosi_Y=GraphXPosi_Y;

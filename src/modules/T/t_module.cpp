@@ -422,7 +422,7 @@ char * t_module::GetInfoTxt()
 
 int t_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=5;
+	*type = MODULE_T;
 	((t_moduleData*)buffer)->type=2;
 
 	((t_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

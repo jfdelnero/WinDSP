@@ -49,7 +49,9 @@
 
  filtre_iir::filtre_iir()
  {
-
+	this->static_i = 0;
+	this->static_j = 2;
+	this->static_k = 1;
  }
  
 void filtre_iir::init_iir()
@@ -64,16 +66,19 @@ void filtre_iir::init_iir()
 int filtre_iir::iir(short * d, int length)
 {
 	short *data = d;
-	// Indexes for the history arrays
-	 // These have to be kept between calls to this function
-	 // hence they are static //
-	static int i = 0, j = 2, k = 1;	
+	int i, j , k;
 
 	int index, band, channel;
 	int tempgint, halflength;
 	float out[EQ_CHANNELS], pcm[EQ_CHANNELS], pcm_scaled[EQ_CHANNELS];
 
-	
+	// Indexes for the history arrays
+	// These have to be kept between calls to this function
+	// hence they are static //	
+	i = static_i;
+	j = static_j;
+	k = static_k;
+
 	////
 	 // IIR filter equation is
 	 // y[n] = 2 * (alpha*(x[n]-x[n-2]) + gamma*y[n-1] - beta*y[n-2])
@@ -148,6 +153,10 @@ int filtre_iir::iir(short * d, int length)
 		else k = 0;
 		
 	}// For each pair of samples //
+
+	static_i = i;
+	static_j = j;
+	static_k = k;
 
 	return length;
 }

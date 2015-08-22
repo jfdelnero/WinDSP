@@ -360,7 +360,7 @@ char * input_module::GetInfoTxt()
 ///////////////////////////////////////////////////////////////////////////////////////
 int input_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=1;
+	*type = MODULE_INPUT;
 	((input_moduleData*)buffer)->type=2;
 
 	((input_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

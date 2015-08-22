@@ -34,6 +34,9 @@ private:
 
 	float gain[EQ_MAX_BANDS][EQ_CHANNELS];
 
+	int static_i;
+	int static_j;
+	int static_k;
 public:
 	filtre_iir();
 	int iir(short * d, int length);

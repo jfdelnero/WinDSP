@@ -556,7 +556,7 @@ char * mix_module::GetInfoTxt()
 
 int mix_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=4;
+	*type = MODULE_MIX;
 	((mix_moduleData*)buffer)->type=2;
 
 	((mix_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

@@ -578,7 +578,7 @@ char * SignalTransform_module::GetInfoTxt()
 
 int SignalTransform_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=8;
+	*type = MODULE_ST;
 	((ParammoduleData*)buffer)->type=2;
 
 	((ParammoduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

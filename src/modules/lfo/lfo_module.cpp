@@ -682,7 +682,7 @@ void lfo_module::SetAmpl(int Ampl)
 ///////////////////////////////////////////////////////////////////////////////////////
 int lfo_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=6;
+	*type = MODULE_LFO;
 	((lfo_moduleData*)buffer)->type=2;
 
 	((lfo_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

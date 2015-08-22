@@ -662,7 +662,7 @@ int CChildView::SaveDsp(char* t)
 		{
 			taille=modules[i]->GetParamData((void*)&buffer,512,&type);
 			sprintf(dspmod,"DSPMOD");
-			f.write(dspmod,strlen(dspmod));
+			f.write(dspmod, 6 );
 			f.write((char*)&i,sizeof(i));
 			f.write((char*)&type,sizeof(type));
 			f.write((char*)&taille,sizeof(taille));
@@ -706,7 +706,7 @@ int CChildView::LoadDsp(char* t)
 
 	while(!f.eof())
 	{
-		f.read(buffer,sizeof("DSPMO"));
+		f.read(buffer, 6 );
 		buffer[6]=0;
 
 		if(strcmp(buffer,"DSPMOD")==0)

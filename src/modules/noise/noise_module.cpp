@@ -332,10 +332,7 @@ int noise_module::GetDoorFlag(int Port)
 ///////////////////////////////////////////////////////////////////////////////////////
 char * noise_module::GetInfoTxt()
 {
-	if(InputNumber!=-1)
-		return (char*)&Sound_IO::EntreSon[InputNumber].Nomcarteson;
-    else
-		return NULL;
+	return NULL;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -347,7 +344,7 @@ char * noise_module::GetInfoTxt()
 ///////////////////////////////////////////////////////////////////////////////////////
 int noise_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=1;
+	*type = MODULE_NOISE;
 	((noise_moduleData*)buffer)->type=2;
 
 	((noise_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

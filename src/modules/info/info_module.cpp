@@ -334,7 +334,7 @@ void info_module::SetTxt(char * lc)
 
 int info_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=13;
+	*type = MODULE_INFO;
 	((info_moduleData*)buffer)->type=2;
 
 	((info_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

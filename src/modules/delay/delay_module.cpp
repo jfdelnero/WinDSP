@@ -550,7 +550,7 @@ char * Delay_module::GetInfoTxt()
 
 int Delay_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=3;
+	*type = MODULE_DELAY;
 
 	((Delay_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;
 	((Delay_moduleData*)buffer)->GraphXPosi_Y=GraphXPosi_Y;

@@ -465,7 +465,7 @@ char * reverb_module::GetInfoTxt()
 
 int reverb_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=10;
+	*type = MODULE_REVERB;
 
 	((reverb_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;
 	((reverb_moduleData*)buffer)->GraphXPosi_Y=GraphXPosi_Y;

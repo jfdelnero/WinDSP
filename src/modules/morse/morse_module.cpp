@@ -445,7 +445,7 @@ void Morse_module::SetTxt(char * lc)
 
 int Morse_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=13;
+	*type = MODULE_MORSE;
 	((Morse_moduleData*)buffer)->type=2;
 
 	((Morse_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

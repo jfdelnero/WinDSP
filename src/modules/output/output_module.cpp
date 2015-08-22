@@ -51,7 +51,7 @@
 
 #include "output_module.h"
 #include "Output_dialog.h"
-#include "Sound_IO.h"
+#include "sound_io.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -433,7 +433,7 @@ char * output_module::GetInfoTxt()
 
 int output_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=2;
+	*type = MODULE_OUTPUT;
 	((output_moduleData*)buffer)->type=2;
 
 	((output_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

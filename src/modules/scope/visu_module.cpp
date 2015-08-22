@@ -466,7 +466,7 @@ void visu_module::DestroyDialog()
 
 int visu_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=9;
+	*type = MODULE_SCOPE;
 
 	((Visu_moduleData*)buffer)->type=2;
 

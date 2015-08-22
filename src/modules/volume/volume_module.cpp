@@ -639,7 +639,7 @@ void Volume_module::SetMono(int m)
 
 int Volume_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=7;
+	*type = MODULE_VOLUME;
 	((Volume_moduleData*)buffer)->type=2;
 
 	((Volume_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;

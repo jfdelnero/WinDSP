@@ -59,9 +59,37 @@
 #define MOD_DATAALREADYPRESENT 9// Sample déjà la...
 #define MOD_MISSINGCONNECTION 10// il manque une connection...
 #define MOD_MODUNPREPARE 11     // pas pret...
+
+//////////////////////////////////////////////////////////////
+// Modules ID
+//////////////////////////////////////////////////////////////
+
+enum {
+	MODULE_NONE = 0,
+	MODULE_INPUT,	// 1
+	MODULE_OUTPUT,	// 2
+	MODULE_DELAY,	// 3
+	MODULE_MIX,		// 4
+	MODULE_T,		// 5
+	MODULE_LFO,		// 6
+	MODULE_VOLUME,	// 7
+	MODULE_ST,		// 8
+	MODULE_SCOPE,	// 9
+	MODULE_REVERB,	// 10
+	MODULE_FILTER,	// 11
+	MODULE_DETECTOR,// 12
+	MODULE_INFO,	// 13
+	MODULE_MORSE,	// 14
+	MODULE_FEEDBACK,// 15
+	MODULE_AGENT,	// 16
+	MODULE_NOISE	// 17
+};
+
+
 //////////////////////////////////////////////////////////////
 // Structure de connections
 //////////////////////////////////////////////////////////////
+
 typedef struct Connexion
 {
 	int ToModule;
@@ -77,6 +105,7 @@ typedef struct Connexion
 //////////////////////////////////////////////////////////////
 // Classe module
 //////////////////////////////////////////////////////////////
+
 class module
 {
 protected:

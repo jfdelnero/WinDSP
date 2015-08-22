@@ -543,7 +543,7 @@ char * Agent_module::GetInfoTxt()
 
 int Agent_module::GetParamData(void * buffer,int size,int * type)
 {
-	*type=16;
+	*type = MODULE_AGENT;
 
 	((Agent_moduleData*)buffer)->GraphXPosi_X=GraphXPosi_X;
 	((Agent_moduleData*)buffer)->GraphXPosi_Y=GraphXPosi_Y;
