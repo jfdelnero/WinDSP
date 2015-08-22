@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=Noice_module_dialog
+LastClass=Noise_module_dialog
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "windsp.h"
@@ -24,30 +24,30 @@ Class12=CWinDSPApp
 Class13=CAboutDlg
 
 ResourceCount=19
-Resource1=IDD_MODULE_OUTPUT (English (U.S.))
-Resource2=IDD_MODULE_FILTER (English (U.S.))
-Resource3=IDD_MODULE_NOISE (English (U.S.))
-Resource4=IDD_MODULE_DETECTOR (English (U.S.))
-Resource5=IDD_MODULE_DELAY (English (U.S.))
-Resource6=IDD_MODULE_SCOPE (English (U.S.))
-Resource7=IDD_MODULE_MINFO (English (U.S.))
-Resource8=IDD_MODULE_MIX (English (U.S.))
+Resource1=IDD_DIALOG_CONFIG
+Resource2=IDD_MODULE_AGENT (English (U.S.))
+Resource3=IDD_MODULE_SIGNALTRANSFORM (English (U.S.))
+Resource4=IDD_MODULE_LFO (English (U.S.))
+Resource5=IDD_MODULE_MMORSE (English (U.S.))
+Resource6=IDD_MODULE_NOISE (English (U.S.))
+Resource7=IDD_MODULE_DELAY (English (U.S.))
+Resource8=IDD_DIALOGSTART
 Resource9=IDD_MODULE_SIGNALTRANSFORM1 (English (U.S.))
 Class14=Mix_dialog
-Resource10=IDD_MODULE_AGENT (English (U.S.))
+Resource10=IDD_MODULE_FILTER (English (U.S.))
 Class15=reverb_dialog
-Resource11=IDD_DIALOG_CONFIG
+Resource11=IDD_MODULE_DETECTOR (English (U.S.))
 Class16=detector_dialog
-Resource12=IDD_MODULE_SIGNALTRANSFORM (English (U.S.))
+Resource12=IDD_MODULE_VOLUME (English (U.S.))
 Class17=CDialog_Config
-Resource13=IDD_MODULE_REVERB (English (U.S.))
-Resource14=IDD_MODULE_MMORSE (English (U.S.))
+Resource13=IDD_MODULE_SCOPE (English (U.S.))
+Resource14=IDD_MODULE_OUTPUT (English (U.S.))
 Class18=Info_Dialog
-Resource15=IDD_ABOUTBOX
-Resource16=IDD_MODULE_VOLUME (English (U.S.))
-Resource17=IDD_MODULE_LFO (English (U.S.))
-Resource18=IDD_DIALOGSTART
-Class19=Noice_module_dialog
+Resource15=IDD_MODULE_MIX (English (U.S.))
+Resource16=IDD_MODULE_MINFO (English (U.S.))
+Resource17=IDD_ABOUTBOX
+Resource18=IDD_MODULE_REVERB (English (U.S.))
+Class19=Noise_module_dialog
 Resource19=IDR_MAINFRAME
 
 [CLS:CChildView]
@@ -139,7 +139,7 @@ Type=0
 BaseClass=CDialog
 HeaderFile=..\modules\volume\Volume_module_dialog.h
 ImplementationFile=..\modules\volume\Volume_module_dialog.cpp
-LastObject=ID_BMODULE01
+LastObject=IDC_SLIDER2
 Filter=D
 VirtualFilter=dWC
 
@@ -533,25 +533,23 @@ Control19=IDC_EDIT11,edit,1350631552
 
 [DLG:IDD_MODULE_NOISE (English (U.S.))]
 Type=1
-Class=Noice_module_dialog
-ControlCount=10
+Class=Noise_module_dialog
+ControlCount=8
 Control1=IDC_STATIC,static,1342308352
 Control2=IDOK,button,1342242816
-Control3=IDC_SLIDER1,msctls_trackbar32,1342242855
-Control4=IDC_EDIT1,edit,1350633600
-Control5=IDC_SLIDER2,msctls_trackbar32,1342242855
-Control6=IDC_EDIT2,edit,1350633600
-Control7=IDC_CHECK2,button,1342242819
-Control8=IDC_CHECK4,button,1342242819
-Control9=IDC_CHECK3,button,1342242819
-Control10=IDC_CHECK5,button,1342242819
+Control3=IDC_SLIDER1,msctls_trackbar32,1342242840
+Control4=IDC_STATIC,static,1342308352
+Control5=IDC_SLIDER2,msctls_trackbar32,1342242840
+Control6=IDC_STATIC,static,1342308352
+Control7=IDC_SLIDER3,msctls_trackbar32,1342242840
+Control8=IDC_STATIC,static,1342308352
 
-[CLS:Noice_module_dialog]
+[CLS:Noise_module_dialog]
 Type=0
 HeaderFile=..\modules\noise\noise_module_dialog.h
 ImplementationFile=..\modules\noise\noise_module_dialog.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=ID_BNOISE
+LastObject=IDC_SLIDER3
 VirtualFilter=dWC
 

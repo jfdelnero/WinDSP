@@ -51,6 +51,7 @@
 #include "module.h"
 #include "sound_io.h"
 #include "noise_module.h"
+#include "noise_module_dialog.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //Constructeur
@@ -168,7 +169,22 @@ int noise_module::GetSample(short * Buffer, int Size,int Port)
 
 	for(i=0;i<Size;i++)
 	{
-		Buffer[i]=rand()+rand();
+
+		if(cntvalue >= (noise_pause*2))
+		{
+			cntvalue = 0;
+			randvalue = rand()+rand();
+		}
+		else
+		{
+			if( cntvalue > (noise_pulse_length*2) )
+			{
+				randvalue = 0;
+			}
+			cntvalue++;
+		}
+
+		Buffer[i] = randvalue;
 	}
 
 	return MOD_OK;
@@ -235,6 +251,14 @@ int noise_module::ProcessSample(int Size)
 
 int noise_module::OpenConfigWindow()
 {
+	Noise_module_dialog * BoiteDialogue;
+
+	BoiteDialogue = new Noise_module_dialog(this);
+	if(BoiteDialogue!=NULL)
+	{
+		BoiteDialogue->Create(IDD_MODULE_NOISE);
+		BoiteDialogue->ShowWindow(SW_SHOW);
+	}
 	return MOD_OK;
 }
 
@@ -382,3 +406,19 @@ int noise_module::SetParamData(void * buffer,int size,int * type)
 
 	return sizeof(noise_moduleData);
 }
+
+void noise_module::SetNoiseLen(int len)
+{
+	noise_pulse_length = len;
+}
+
+void noise_module::SetNoiseRepeat(int repeat)
+{
+	noise_pause = repeat;
+}
+
+void noise_module::SetNoiseAttack(int attack)
+{
+	noise_attack = attack;
+}
+

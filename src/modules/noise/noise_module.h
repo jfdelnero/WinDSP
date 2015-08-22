@@ -11,6 +11,10 @@ typedef struct noise_moduleData
 
 	Connexion Connection[8];
 	int InputNumber;
+
+	int noise_pulse_length;
+	int noise_pause;
+	int noise_attack;
 }noise_moduleData;
 
 class noise_module : public module
@@ -20,6 +24,15 @@ private:
 	int InputNumber;
 	int Flag;
 
+	int noise_pulse_length;
+	int noise_pause;
+	int noise_attack;
+	int randvalue;
+	int oldrandvalue;
+	int newrandvalue;
+
+	int cntvalue;
+	int cntpausevalue;
 public:
 
 	noise_module(int,int);
@@ -52,4 +65,7 @@ public:
 	int GetParamData(void *,int,int *);
 	int SetParamData(void *,int,int *);
 
+	void SetNoiseLen(int len);
+	void SetNoiseRepeat(int repeat);
+	void SetNoiseAttack(int attack);
 };
