@@ -41,6 +41,11 @@ protected:
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 	afx_msg void OnCustomdrawSlider2(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnCustomdrawSlider3(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnCustomdrawSliderPulseLenRand(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnCustomdrawSliderPulsePerRand(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnCustomdrawSliderMin(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnCustomdrawSliderMax(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnCustomdrawSliderNoPulseValue(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

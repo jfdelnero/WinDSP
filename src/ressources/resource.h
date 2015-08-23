@@ -48,6 +48,7 @@
 #define IDI_ICON20                      155
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT1                       1002
+#define IDC_SLIDER18                    1002
 #define IDC_SLIDER2                     1003
 #define IDC_EDIT5                       1003
 #define IDC_EDIT2                       1004
@@ -58,11 +59,14 @@
 #define IDC_SLIDER4                     1005
 #define IDC_CHECK4                      1006
 #define IDC_EDIT4                       1006
+#define IDC_SLIDER15                    1006
 #define IDC_CHECK3                      1007
 #define IDC_SLIDER14                    1007
+#define IDC_SLIDER16                    1007
 #define IDC_CHECK5                      1008
 #define IDC_SLIDER12                    1008
 #define IDC_EDIT6                       1008
+#define IDC_SLIDER17                    1008
 #define IDC_CHECK6                      1009
 #define IDC_SLIDER5                     1009
 #define IDC_EDIT7                       1009

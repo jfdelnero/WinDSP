@@ -80,6 +80,26 @@ noise_module::noise_module(int X,int Y)
 	Connection[4].GraphX2=31;
 	Connection[4].GraphY2=24;
 
+	noise_pause = 0;
+	noise_pulse_length = 0x7FFF;
+	noise_attack = 0xFFFF;
+
+	noise_max_level = 32767;
+	noise_min_level = -32767;
+
+	cntvalue = 0;
+
+	newrandvalue = 0;
+	randvalue = 0;
+	oldrandvalue = 0;
+
+	noise_nopulse_level = 0;
+	noise_pulselen_rand = 0;
+	noise_pulseperiod_rand = 0;
+
+	lenrand1 = 0;
+	lenrand2 = 0;
+
 	InputNumber=-1;
 }
 
@@ -165,26 +185,77 @@ int noise_module::TakeSample(short * Buffer, int Size,int Port)
 
 int noise_module::GetSample(short * Buffer, int Size,int Port)
 {
-	int i=0;
+	int i;
+	int distance;
+	int minv,maxv,minmaxlevel;
 
-	for(i=0;i<Size;i++)
+	if(noise_max_level>noise_min_level)
 	{
+		maxv = noise_max_level;
+		minv = noise_min_level;
+	}
+	else
+	{
+		minv = noise_max_level;
+		maxv = noise_min_level;
+	}
 
-		if(cntvalue >= (noise_pause*2))
+	minmaxlevel = maxv - minv;
+
+	for(i=0;i<Size/2;i++)
+	{	
+		if(cntvalue >= ( noise_pause + lenrand2 ) )
 		{
 			cntvalue = 0;
-			randvalue = rand()+rand();
+			oldrandvalue = randvalue;
+			newrandvalue = rand()+rand();
+
+			newrandvalue = (int)(newrandvalue * (float)((float)minmaxlevel / (float)65535));
+			newrandvalue += minv; 
+
+			lenrand2 = (int)( noise_pulseperiod_rand * (float)((float)rand()/(float)32767) );
 		}
 		else
 		{
-			if( cntvalue > (noise_pulse_length*2) )
+			if( cntvalue > ( noise_pulse_length + lenrand1 ) )
 			{
-				randvalue = 0;
+				oldrandvalue = randvalue;
+				newrandvalue = noise_nopulse_level;
+				lenrand1 = (int)( noise_pulselen_rand * (float)((float)rand()/(float)32767) );
 			}
 			cntvalue++;
 		}
 
-		Buffer[i] = randvalue;
+		if( randvalue >= newrandvalue )
+			distance = randvalue - newrandvalue;
+		else
+			distance = newrandvalue - randvalue;
+
+		if( randvalue >= newrandvalue )
+		{
+			if ( distance >= noise_attack )
+			{
+				randvalue -= noise_attack;
+			}
+			else
+			{
+				randvalue = newrandvalue;
+			}
+		}
+		else
+		{
+			if ( distance >= noise_attack )
+			{
+				randvalue += noise_attack;
+			}
+			else
+			{
+				randvalue = newrandvalue;
+			}
+		}
+
+		Buffer[i*2] = randvalue;
+		Buffer[(i*2)+1] = randvalue;
 	}
 
 	return MOD_OK;
@@ -381,6 +452,16 @@ int noise_module::GetParamData(void * buffer,int size,int * type)
 		((noise_moduleData*)buffer)->Connection[i].Port=Connection[i].Port;
 		((noise_moduleData*)buffer)->Connection[i].ToModule=Connection[i].ToModule;
 	}
+
+	((noise_moduleData*)buffer)->noise_attack = noise_attack;
+	((noise_moduleData*)buffer)->noise_pause = noise_pause;
+	((noise_moduleData*)buffer)->noise_pulse_length = noise_pulse_length;
+	((noise_moduleData*)buffer)->noise_nopulse_level = noise_nopulse_level;
+	((noise_moduleData*)buffer)->noise_pulselen_rand = noise_pulselen_rand;
+	((noise_moduleData*)buffer)->noise_pulseperiod_rand = noise_pulseperiod_rand;
+	((noise_moduleData*)buffer)->noise_min_level = noise_min_level;
+	((noise_moduleData*)buffer)->noise_max_level = noise_max_level;
+
 	return sizeof(noise_moduleData);
 }
 
@@ -404,6 +485,15 @@ int noise_module::SetParamData(void * buffer,int size,int * type)
 		Connection[i].ToModule=((noise_moduleData*)buffer)->Connection[i].ToModule;
 	}
 
+	noise_attack = ((noise_moduleData*)buffer)->noise_attack;
+	noise_pause = ((noise_moduleData*)buffer)->noise_pause;
+	noise_pulse_length = ((noise_moduleData*)buffer)->noise_pulse_length;
+	noise_nopulse_level = ((noise_moduleData*)buffer)->noise_nopulse_level;
+	noise_pulselen_rand = ((noise_moduleData*)buffer)->noise_pulselen_rand;
+	noise_pulseperiod_rand = ((noise_moduleData*)buffer)->noise_pulseperiod_rand;
+	noise_min_level = ((noise_moduleData*)buffer)->noise_min_level;
+	noise_max_level = ((noise_moduleData*)buffer)->noise_max_level;
+
 	return sizeof(noise_moduleData);
 }
 
@@ -412,9 +502,19 @@ void noise_module::SetNoiseLen(int len)
 	noise_pulse_length = len;
 }
 
+int noise_module::GetNoiseLen()
+{
+	return noise_pulse_length;
+}
+
 void noise_module::SetNoiseRepeat(int repeat)
 {
 	noise_pause = repeat;
+}
+
+int noise_module::GetNoiseRepeat()
+{
+	return noise_pause;
 }
 
 void noise_module::SetNoiseAttack(int attack)
@@ -422,3 +522,57 @@ void noise_module::SetNoiseAttack(int attack)
 	noise_attack = attack;
 }
 
+int noise_module::GetNoiseAttack()
+{
+	return noise_attack;
+}
+
+void noise_module::SetNoiseNoPulseLevel(int level)
+{
+	noise_nopulse_level = level;
+}
+
+int noise_module::GetNoiseNoPulseLevel()
+{
+	return noise_nopulse_level;
+}
+
+void noise_module::SetNoisePulseLenRand(int len)
+{
+	noise_pulselen_rand = len;
+}
+
+int noise_module::GetNoisePulseLenRand()
+{
+	return noise_pulselen_rand;
+}
+
+void noise_module::SetNoisePulsePeriodRand(int len)
+{
+	noise_pulseperiod_rand = len;
+}
+
+int noise_module::GetNoisePulsePeriodRand()
+{
+	return noise_pulseperiod_rand;
+}
+
+void noise_module::SetNoiseMaxLevel(int level)
+{
+	noise_max_level = level;
+}
+
+int noise_module::GetNoiseMaxLevel()
+{
+	return noise_max_level;
+}
+
+void noise_module::SetNoiseMinLevel(int level)
+{
+	noise_min_level = level;
+}
+
+int noise_module::GetNoiseMinLevel()
+{
+	return noise_min_level;
+}

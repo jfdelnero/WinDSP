@@ -15,6 +15,12 @@ typedef struct noise_moduleData
 	int noise_pulse_length;
 	int noise_pause;
 	int noise_attack;
+	int noise_nopulse_level;
+	int noise_pulselen_rand;
+	int noise_pulseperiod_rand;
+	int noise_max_level;
+	int noise_min_level;
+
 }noise_moduleData;
 
 class noise_module : public module
@@ -33,6 +39,14 @@ private:
 
 	int cntvalue;
 	int cntpausevalue;
+	int noise_nopulse_level;
+	int noise_pulselen_rand;
+	int noise_pulseperiod_rand;
+	int noise_max_level;
+	int noise_min_level;
+
+	int lenrand1;
+	int lenrand2;
 public:
 
 	noise_module(int,int);
@@ -66,6 +80,23 @@ public:
 	int SetParamData(void *,int,int *);
 
 	void SetNoiseLen(int len);
+	int  GetNoiseLen();
 	void SetNoiseRepeat(int repeat);
+	int  GetNoiseRepeat();
 	void SetNoiseAttack(int attack);
+	int  GetNoiseAttack();
+	void SetNoiseNoPulseLevel(int level);
+	int  GetNoiseNoPulseLevel();
+	void SetNoisePulseLenRand(int len);
+	int  GetNoisePulseLenRand();
+	void SetNoisePulsePeriodRand(int len);
+	int  GetNoisePulsePeriodRand();
+
+	void SetNoiseMaxLevel(int level);
+	int  GetNoiseMaxLevel();
+	void SetNoiseMinLevel(int level);
+	int  GetNoiseMinLevel();
 };
+
+
+

@@ -52,6 +52,11 @@ BEGIN_MESSAGE_MAP(Noise_module_dialog, CDialog)
 	ON_WM_SHOWWINDOW()
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER2, OnCustomdrawSlider2)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER3, OnCustomdrawSlider3)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER18, OnCustomdrawSliderPulseLenRand)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER4, OnCustomdrawSliderPulsePerRand)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER15, OnCustomdrawSliderMin)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER16, OnCustomdrawSliderMax)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER17, OnCustomdrawSliderNoPulseValue)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -71,7 +76,7 @@ void Noise_module_dialog::OnCustomdrawSlider1(NMHDR* pNMHDR, LRESULT* pResult)
 	// TODO: Add your control notification handler code here
 	
 	pulselen = SendDlgItemMessage(IDC_SLIDER1,TBM_GETPOS, 0, 0);
-	this->thimod->SetNoiseLen(pulselen);
+	thimod->SetNoiseLen(pulselen);
 
 	*pResult = 0;
 }
@@ -79,14 +84,31 @@ void Noise_module_dialog::OnCustomdrawSlider1(NMHDR* pNMHDR, LRESULT* pResult)
 void Noise_module_dialog::OnShowWindow(BOOL bShow, UINT nStatus) 
 {
 	CDialog::OnShowWindow(bShow, nStatus);
-	
-	// TODO: Add your message handler code here
 
-	CDialog::OnShowWindow(bShow, nStatus);
+	SendDlgItemMessage(IDC_SLIDER1, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER1, TBM_SETPOS, TRUE,thimod->GetNoiseLen());
 
-	SendDlgItemMessage(IDC_SLIDER1, TBM_SETRANGE, TRUE, MAKELONG(0, 30000));	
-	SendDlgItemMessage(IDC_SLIDER2, TBM_SETRANGE, TRUE, MAKELONG(0, 30000));	
-	SendDlgItemMessage(IDC_SLIDER3, TBM_SETRANGE, TRUE, MAKELONG(0, 3000));	
+	SendDlgItemMessage(IDC_SLIDER2, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER2, TBM_SETPOS, TRUE,thimod->GetNoiseRepeat());
+
+	SendDlgItemMessage(IDC_SLIDER3, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER3, TBM_SETPOS, TRUE,thimod->GetNoiseAttack()/2);
+
+	SendDlgItemMessage(IDC_SLIDER17, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER17, TBM_SETPOS, TRUE,(thimod->GetNoiseNoPulseLevel()/2)+(0x7FFF/2));
+
+	SendDlgItemMessage(IDC_SLIDER18, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER18, TBM_SETPOS, TRUE,thimod->GetNoisePulseLenRand());
+
+	SendDlgItemMessage(IDC_SLIDER4, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER4, TBM_SETPOS, TRUE,thimod->GetNoisePulsePeriodRand());
+
+	SendDlgItemMessage(IDC_SLIDER15, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER15, TBM_SETPOS, TRUE,(thimod->GetNoiseMinLevel()/2)+(0x7FFF/2));
+
+	SendDlgItemMessage(IDC_SLIDER16, TBM_SETRANGE, TRUE, MAKELONG(0, 0x7FFF));	
+	SendDlgItemMessage(IDC_SLIDER16, TBM_SETPOS, TRUE,(thimod->GetNoiseMaxLevel()/2)+(0x7FFF/2));
+
 }
 
 void Noise_module_dialog::OnCustomdrawSlider2(NMHDR* pNMHDR, LRESULT* pResult) 
@@ -94,7 +116,7 @@ void Noise_module_dialog::OnCustomdrawSlider2(NMHDR* pNMHDR, LRESULT* pResult)
 	int repeatlen;
 	
 	repeatlen = SendDlgItemMessage(IDC_SLIDER2,TBM_GETPOS, 0, 0);
-	this->thimod->SetNoiseRepeat(repeatlen);
+	thimod->SetNoiseRepeat(repeatlen);
 	
 	*pResult = 0;
 }
@@ -104,7 +126,53 @@ void Noise_module_dialog::OnCustomdrawSlider3(NMHDR* pNMHDR, LRESULT* pResult)
 	int attack;
 	
 	attack = SendDlgItemMessage(IDC_SLIDER3,TBM_GETPOS, 0, 0);
-	this->thimod->SetNoiseAttack(attack);
+	thimod->SetNoiseAttack(attack*2);
 	
+	*pResult = 0;
+}
+
+void Noise_module_dialog::OnCustomdrawSliderPulseLenRand(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	int len;
+
+	len = SendDlgItemMessage(IDC_SLIDER18,TBM_GETPOS, 0, 0);
+	thimod->SetNoisePulseLenRand(len);
+	*pResult = 0;
+}
+
+void Noise_module_dialog::OnCustomdrawSliderPulsePerRand(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	int len;
+
+	len = SendDlgItemMessage(IDC_SLIDER4,TBM_GETPOS, 0, 0);
+	thimod->SetNoisePulsePeriodRand(len);
+	
+	*pResult = 0;
+}
+
+void Noise_module_dialog::OnCustomdrawSliderMin(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	int level;
+
+	level = SendDlgItemMessage(IDC_SLIDER15,TBM_GETPOS, 0, 0)*2;
+	thimod->SetNoiseMinLevel( level - 32767 );
+	*pResult = 0;
+}
+
+void Noise_module_dialog::OnCustomdrawSliderMax(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	int level;
+
+	level = SendDlgItemMessage(IDC_SLIDER16,TBM_GETPOS, 0, 0)*2;
+	thimod->SetNoiseMaxLevel( level - 32767 );
+	*pResult = 0;
+}
+
+void Noise_module_dialog::OnCustomdrawSliderNoPulseValue(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	int level;
+
+	level = SendDlgItemMessage(IDC_SLIDER17,TBM_GETPOS, 0, 0)*2;
+	thimod->SetNoiseNoPulseLevel( level - 32767 );
 	*pResult = 0;
 }
